@@ -1,5 +1,7 @@
 # togo
 
+[![Go tests](https://github.com/nessamurmur/togo/actions/workflows/go-test.yml/badge.svg)](https://github.com/nessamurmur/togo/actions/workflows/go-test.yml)
+
 A small example Bubble Tea application that demonstrates a selectable list.
 
 This repository contains a simple Bubble Tea model defined in `main.go`. The app renders a list of choices and allows navigating with `j`/`k` or `up`/`down`, toggling selection with `enter` or space, and quitting with `q` or `ctrl+c`.
