@@ -5,11 +5,10 @@ import (
 )
 
 func TestNewTaskID_GeneratesValidUUID(t *testing.T) {
-	idStr := "550e8400-e29b-41d4-a716-446655440000"
-	taskID := NewTaskID(idStr)
+	taskID := NewTaskID()
 
-	if taskID.String() != idStr {
-		t.Fatalf("expected TaskID string to be %s, got %s", idStr, taskID.String())
+	if taskID.IsEmpty() {
+		t.Fatalf("expected NewTaskID to generate a non-empty UUID")
 	}
 }
 
@@ -39,29 +38,15 @@ func TestIsEmpty(t *testing.T) {
 		t.Fatalf("expected empty TaskID to be empty")
 	}
 
-	nonEmptyID := NewTaskID("550e8400-e29b-41d4-a716-446655440000")
+	nonEmptyID := NewTaskID()
 	if nonEmptyID.IsEmpty() {
 		t.Fatalf("expected non-empty TaskID to not be empty")
 	}
 }
 
-func TestEqualsAndNotEquals(t *testing.T) {
-	idStr := "550e8400-e29b-41d4-a716-446655440000"
-	taskID1 := NewTaskID(idStr)
-	taskID2 := NewTaskID(idStr)
-
-	if !taskID1.Equals(taskID2) {
-		t.Fatalf("expected TaskIDs to be equal")
-	}
-
-	if taskID1.NotEquals(taskID2) {
-		t.Fatalf("expected TaskIDs to not be unequal")
-	}
-}
-
 func TestNotEquals_DifferentIDs(t *testing.T) {
-	taskID1 := NewTaskID("550e8400-e29b-41d4-a716-446655440000")
-	taskID2 := NewTaskID("660e8400-e29b-41d4-a716-446655440000")
+	taskID1 := NewTaskID()
+	taskID2 := NewTaskID()
 
 	if taskID1.Equals(taskID2) {
 		t.Fatalf("expected TaskIDs to not be equal")

@@ -10,8 +10,8 @@ func (t TaskID) String() string {
 	return uuid.UUID(t).String()
 }
 
-func NewTaskID(id string) TaskID {
-	return TaskID(uuid.MustParse(id))
+func NewTaskID() TaskID {
+	return TaskID(uuid.New())
 }
 
 func ParseTaskID(id string) (TaskID, error) {
