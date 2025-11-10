@@ -5,14 +5,6 @@ import (
 	"time"
 )
 
-// Temporary Task definition for testing (remove when Task 7 is complete)
-// This minimal struct allows parallel development of TaskFilter before Task entity is implemented
-type Task struct {
-	Status  TaskStatus
-	Tags    []string
-	DueDate *time.Time
-}
-
 // Test fixtures - reusable test data
 var (
 	statusPool  = StatusPool
